@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ntv_vor_25/methods.dart';
 void main(List<String> arguments) {
   /*
@@ -6,6 +8,15 @@ void main(List<String> arguments) {
     Hjörtur, would you like to learn Dart strings today?'
     Store Message and Name in seperate variable.
    */
+/*
+String firstName = "Cookie";
+String lastName = "Monster";
+print("Hi $firstName, is $firstName your full name? or do you also have a last name?");
+print(lastName);
+print("so your name is $firstName $lastName?");
+String coding = "dart";
+print(" so $firstName $lastName would you like to look into some $coding strings today?");
+*/
 
   /* 1. Find a quote from a famous person you admire. Print the quote and the name of its
   author. Your output should look something like the following, including the
@@ -14,15 +25,31 @@ void main(List<String> arguments) {
   anything new.'
   */
 
+ // String quote = "The only way to do great work is to love what you do.";
+  //String author = "Steve Jobs";
+
+  //print('"$quote" - $author');
+
   /*
     2. Assign a message to a variable, and print that message. Then change the value of
   the variable to a new message, and print the new message.
    */
 
+ /* String message = "What´s up Doc";
+  print(message);
+
+  message = "Isn´t this is fun!";
+  print(message);
+  */
+
   /*
     3.  Remove all the spaces from the rhyme. And print the modified rhyme.
    */
+  /*
   String NureseryRyhme = "Eena, meena, mina, mo, Catch a mouse by the toe; If he squeals let him go, Eeena, meena, mina, mo.";
+  String noSpace = NureseryRyhme.replaceAll(RegExp(r'\s+'), "");
+  print(noSpace);
+ */
   /*
    4. Prompt a user for their full name (first name and last name)
     1. Store the users entry.
@@ -31,6 +58,28 @@ void main(List<String> arguments) {
     4. Capitalise and display the users full name with each word having a capital
     first letter, and the other letters being lowercase.
    */
+
+
+    stdout.write("Enter your full name: ");
+    String fullName = stdin.readLineSync() ?? "";
+
+    String allCaps = fullName.toUpperCase();
+    print("All caps: $allCaps");
+
+    List<String> nameParts = fullName.split(" ");
+    if (nameParts.length > 1) {
+      nameParts[0] = "Serafina";
+    }
+    String modifiedName = nameParts.join(" ");
+    print("Modified name: $modifiedName");
+
+    String capitalizedName = fullName
+        .split(" ")
+        .map((word) => word.isNotEmpty
+        ? word[0].toUpperCase() + word.substring(1).toLowerCase()
+        : "")
+        .join(" ");
+    print("Capitalized full name: $capitalizedName");
 
   /*
     5. Display the following SSN on the correct Format:
